@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 require("dotenv").config();
 
 const prefix = "!";
@@ -17,8 +17,8 @@ client.on("ready", () => {
   console.log("-------------------------------------------------------");
 
   client.user.setActivity("Digite !help <comando> pra mais detalhes", {
-    type: "PLAYING",
-  });
+    type: ActivityType.Playing
+  })
 });
 
 client.on("messageCreate", async (message) => {
