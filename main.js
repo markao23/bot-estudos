@@ -30,7 +30,6 @@ client.on("messageCreate", async (message) => {
   }
 
   if (!message.content.startsWith(prefix)) {
-    // console.log("Mensagem ignorada: não começa com o prefixo."); // Descomente se quiser ver todas as mensagens sem prefixo
     return;
   }
 
