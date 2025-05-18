@@ -5,7 +5,6 @@ require("dotenv").config();
 
 const prefix = "!";
 const commandPath = path.join(__dirname, "command")
-client.commands = new Collection();
 
 const client = new Client({
   intents: [
@@ -15,6 +14,7 @@ const client = new Client({
     GatewayIntentBits.GuildPresences,
   ],
 });
+client.commands = new Collection();
 
 if (fs.existsSync(commandPath)) {
   const commandFiles = fs.readdirSync(commandPath).filter(file => file.endsWith('.js'))
@@ -69,7 +69,7 @@ client.on("messageCreate", async (message) => {
     console.error(`Erro ao executar o comando ${commandName}:`, error);
     message.reply('Ocorreu um erro ao tentar executar esse comando!');
   }
-  
+
 });
 client.login(process.env.TOKEN).catch((err) => { // << MUDE TOKEN_DO_SEU_ARQUIVO_ENV
   console.error("Erro ao fazer login:", err);
