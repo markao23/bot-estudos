@@ -4,7 +4,7 @@ const path = require("node:path")
 require("dotenv").config();
 
 const prefix = "!";
-const commandPath = path.join(__dirname, "command")
+const commandPath = path.join(__dirname, 'commands')
 
 const client = new Client({
   intents: [
@@ -19,7 +19,7 @@ client.commands = new Collection();
 if (fs.existsSync(commandPath)) {
   const commandFiles = fs.readdirSync(commandPath).filter(file => file.endsWith('.js'))
   for(const file of commandFiles){
-    const filePath = path.join(commandFiles, file)
+    const filePath = path.join(commandPath, file)
     try {
       const command = require(filePath)
       if ('name' in command && 'execute' in command) {
